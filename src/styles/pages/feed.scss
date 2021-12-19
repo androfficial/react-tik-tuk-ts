@@ -1,0 +1,205 @@
+// FEED
+.feed {
+  display: grid;
+  grid-template: repeat(2, auto) / auto;
+  grid-auto-flow: row;
+  row-gap: 20px;
+  width: 100%;
+  max-width: 600px;
+  // .feed__top
+  &__top {
+  }
+  // .feed__title
+  &__title {
+  }
+  // .feed__items
+  &__items {
+    display: grid;
+    grid-template: auto / auto;
+    grid-auto-flow: row;
+    row-gap: 30px;
+  }
+  // .feed__items-list
+  &__items-list {
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    row-gap: 20px;
+  }
+  // .feed__item
+  &__item {
+  }
+  // .feed__pagination
+  &__pagination {
+  }
+}
+
+// ITEM-FEED
+.item-feed {
+  display: grid;
+  grid-template: repeat(2, auto) / auto;
+  grid-auto-flow: row;
+  row-gap: 15px;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid rgba(22, 24, 35, 0.12);
+  // .item-feed__header
+  &__header {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, auto);
+    grid-auto-flow: row;
+    gap: 5px 12px;
+    justify-content: start;
+    word-break: break-word;
+    a {
+      @media (hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  // .item-feed__avatar
+  &__avatar {
+    grid-row: 1 / 3;
+    img {
+    }
+  }
+  // .item-feed__author-info
+  &__author-info {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    column-gap: 4px;
+    align-items: center;
+    justify-content: start;
+    overflow: hidden;
+    @media (max-width: 480px) {
+      grid-template-rows: repeat(2, 1fr);
+    }
+  }
+  // .item-feed__uniqueId-link
+  &__uniqueId-link {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    column-gap: 4px;
+    align-items: center;
+    svg {
+      position: relative;
+      top: 1px;
+    }
+  }
+  // .item-feed__author-uniqueId
+  &__author-uniqueId {
+  }
+  // .item-feed__author-link
+  &__author-link {
+    position: relative;
+    top: 2px;
+    display: inline-grid;
+  }
+  // .item-feed__author-nickname
+  &__author-nickname {
+  }
+  // .item-feed__author-description
+  &__author-description {
+    max-width: 380px;
+    font-size: 16px;
+    line-height: 22px / 16px * 100%;
+    color: rgb(18, 18, 18);
+  }
+  // .item-feed__text
+  &__text {
+    font-weight: normal;
+    &:not(:last-child) {
+      margin: 0px 5px 0px 0px;
+    }
+  }
+  // .item-feed__hashtag-spn
+  &__hashtag-spn {
+    &:not(:last-child) {
+      margin: 0px 5px 0px 0px;
+    }
+  }
+  // .item-feed__hashtag-str
+  &__hashtag-str {
+    font-weight: 600;
+    color: rgba(22, 24, 35, 1);
+  }
+  // .item-feed__wrapper
+  &__wrapper {
+    display: grid;
+    grid-template: repeat(2, auto) / auto;
+    grid-auto-flow: row;
+    row-gap: 15px;
+    width: 290px;
+    @include adaptiv-value('margin-left', 68, 0, 1);
+  }
+  // .item-feed__body
+  &__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 520px / 290px * 100% 0px;
+  }
+  // .item-feed__author-video
+  &__author-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  // .item-feed__footer
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // .item-feed__stat
+  &__stat {
+    display: grid;
+    grid-template: auto / auto;
+    grid-auto-flow: row;
+    row-gap: 6px;
+    justify-items: center;
+    text-align: center;
+    // .item-feed__stat--likes
+    &--likes {
+    }
+    // .item-feed__stat--comm
+    &--comm {
+    }
+  }
+  // .item-feed__stat-wrapper
+  &__stat-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 50%;
+    transition: background-color 0.2s ease 0s;
+    @include adaptiv-value('width', 48, 38, 1);
+    @include adaptiv-value('height', 48, 38, 1);
+    svg {
+      @include adaptiv-value('width', 22, 20, 1);
+      @include adaptiv-value('height', 22, 20, 1);
+      cursor: pointer;
+    }
+    @media (hover: hover) {
+      &:hover {
+        background-color: rgba(22, 24, 35, 0.1);
+      }
+    }
+  }
+  // .item-feed__stat-count
+  &__stat-count {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 17px / 13px * 100%;
+    color: rgba(22, 24, 35, 0.75);
+  }
+}

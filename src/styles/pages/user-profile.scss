@@ -1,0 +1,203 @@
+// USER-PROFILE
+.user-profile {
+  display: grid;
+  grid-template: repeat(2, auto) / auto;
+  grid-auto-flow: row;
+  row-gap: 30px;
+  width: 100%;
+  max-width: 750px;
+  padding: 20px 0px 0px 0px;
+  // .user-profile__top
+  &__top {
+    display: grid;
+    grid-template: repeat(2, auto) / auto;
+    grid-auto-flow: row;
+    row-gap: 15px;
+  }
+  // .user-profile__header
+  &__header {
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, auto);
+    grid-auto-flow: row;
+    column-gap: 12px;
+    justify-content: start;
+  }
+  // .user-profile__avatar
+  &__avatar {
+    grid-row: 1 / 3;
+    width: 116px;
+    height: 116px;
+  }
+  // .user-profile__titles
+  &__titles {
+    word-break: break-word;
+  }
+  // .user-profile__author-uniqueId
+  &__author-uniqueId {
+    display: inline-flex;
+    align-items: center;
+    @include adaptiv-value('font-size', 32, 28, 1);
+    line-height: 38px / 32px * 100%;
+    svg {
+      position: relative;
+      top: 3px;
+      width: 20px;
+      height: 20px;
+      margin: 0px 0px 0px 8px;
+    }
+  }
+  // .user-profile__author-nickname
+  &__author-nickname {
+    font-size: 18px;
+    line-height: 25px / 18px * 100%;
+  }
+  // .user-profile__footer
+  &__footer {
+    display: grid;
+    grid-template: auto / auto;
+    grid-auto-flow: row;
+    row-gap: 12px;
+  }
+  // .user-profile__stats
+  &__stats {
+  }
+  // .user-profile__desc-wrapper
+  &__desc-wrapper {
+  }
+  // .user-profile__desc
+  &__desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px / 16px * 100%;
+    color: #121212;
+    white-space: pre-line;
+  }
+  // .user-profile__share
+  &__share {
+  }
+  // .user-profile__bio-link
+  &__bio-link {
+    display: inline-flex;
+    padding: 0px 0px 0px 20px;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px / 16px * 100%;
+    color: #161823;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-image: url('../../assets/images/UserProfile/bio-link.svg');
+    background-repeat: no-repeat;
+    background-position: center left;
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  // .user-profile__bottom
+  &__bottom {
+    display: grid;
+    grid-template: auto / auto;
+    grid-auto-flow: row;
+    row-gap: 30px;
+  }
+  // .user-profile__posts
+  &__posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    gap: 3px;
+    @media (max-width: 480px) {
+      gap: 10px;
+    }
+  }
+  // .user-profile__post
+  &__post {
+  }
+  // .user-profile__pagination
+  &__pagination {
+  }
+}
+
+// STATS-USER
+.stats-user {
+  display: grid;
+  grid-template: auto / repeat(3, auto);
+  grid-auto-flow: row;
+  gap: 5px 15px;
+  justify-content: start;
+  @media (max-width: 450px) {
+    grid-template: repeat(3, auto) / auto;
+  }
+  // .stats-user__info
+  &__info {
+    display: grid;
+    grid-template: auto / repeat(2, auto);
+    grid-auto-flow: row;
+    column-gap: 5px;
+    align-items: center;
+    justify-content: start;
+    color: rgba(18, 18, 18, 0.75);
+  }
+  // .stats-user__info--following
+  &__info--following {
+  }
+  // .stats-user__count
+  &__count {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px / 18px * 100%;
+  }
+  // .stats-user__desc
+  &__desc {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px / 16px * 100%;
+  }
+  // .stats-user__info--follower
+  &__info--follower {
+  }
+  // .stats-user__info--likes
+  &__info--likes {
+  }
+}
+
+// POST-USER
+.post-user {
+  position: relative;
+  padding: 0px 0px 285px / 196px * 100% 0px;
+  // .post-user__video
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  // .post-user__stats
+  &__stats {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 5;
+    display: grid;
+    grid-template: auto / repeat(2, auto);
+    grid-auto-flow: row;
+    column-gap: 4px;
+    align-items: center;
+    justify-content: start;
+    pointer-events: none;
+    // background: linear-gradient(rgba(22, 24, 35, 0) 2.92%, rgba(22, 24, 35, 0.5) 98.99%);
+    // padding: 7px 13px 17px;
+  }
+  // .post-user__stats-views
+  &__stats-views {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px / 16px * 100%;
+    color: rgba(255, 255, 255, 1);
+  }
+}

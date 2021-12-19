@@ -1,0 +1,27 @@
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(34, 90, 89, 0.2);
+  // .header__container
+  &__container {
+  }
+  // .header__content
+  &__content {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 50px auto;
+    grid-auto-columns: auto;
+    grid-auto-flow: column;
+    column-gap: 30px;
+    align-items: center;
+    justify-content: start;
+    height: 70px;
+    padding: 5px 0;
+    @include adaptiv-value('column-gap', 30, 15, 1);
+  }
+  // .header__logo
+  &__logo {
+  }
+  // .header__menu
+  &__menu {
+  }
+}
