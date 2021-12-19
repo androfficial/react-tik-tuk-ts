@@ -1,4 +1,4 @@
-## :atom_symbol::scorpion: React Tik Tuk With Typescript
+## :scorpion: React Tik Tuk With Typescript
 
 ### :scroll: Description
 
