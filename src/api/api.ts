@@ -1,9 +1,8 @@
-import axios from 'axios';
-
-import stringFormatting from '../services/stringFormatting';
+import axios, { AxiosError } from 'axios';
+import { messageError } from 'types/axios';
+import { FeedPost } from 'types/feed';
 
 const instance = axios.create({
-  method: 'get',
   baseURL: 'https://tiktok33.p.rapidapi.com/',
   headers: {
     'x-rapidapi-host': 'tiktok33.p.rapidapi.com',
@@ -14,36 +13,31 @@ const instance = axios.create({
 const mainAPI = {
   async getPosts() {
     try {
-      const { data } = await instance('trending/feed/?limit=10');
+      const { data } = await instance.get<FeedPost[]>(
+        'trending/feed/?limit=10'
+      );
 
-      return data.map((obj) => ({
-        uniqueName: obj.authorMeta.name,
-        nickName: obj.authorMeta.nickName,
-        verified: obj.authorMeta.verified,
-        avatar: obj.authorMeta.avatar,
-        likesCount: obj.diggCount,
-        commentsCount: obj.commentCount,
-        hashtags: obj.hashtags.map((hashtag) => `#${hashtag.name}`),
-        text: stringFormatting(obj.text),
-        video: obj.videoUrl,
-        cover: obj.covers.origin,
-      }));
-    } catch (error) {
-      if (error.response) {
+      return data;
+    } catch (error: unknown | AxiosError) {
+      if (axios.isAxiosError(error)) {
         console.error(
-          `Could not fetch: ${error.response.data.message}. \nStatus: ${error.response.status}`
+          `Could not fetch: ${
+            (error.response?.data as messageError).message
+          }. \nStatusText: ${error.response?.statusText}. \nStatus: ${
+            error.response?.status
+          }`
         );
         return false;
       }
-      console.error('Error:', error.message);
+      console.error(error);
       return false;
     }
   },
-  async getUserInfo(uniqueName) {
+  async getUserInfo(uniqueName: string) {
     try {
       const [info, feed] = await Promise.all([
-        instance(`user/info/${uniqueName}`),
-        instance('trending/feed/?limit=6'),
+        instance.get(`user/info/${uniqueName}`),
+        instance.get('trending/feed/?limit=6'),
       ]);
 
       // Проблема с получением информации о пользователе "Info"
@@ -69,14 +63,18 @@ const mainAPI = {
         bioLink: info.data.user.bioLink && info.data.user.bioLink.link,
         posts,
       };
-    } catch (error) {
-      if (error.response) {
+    } catch (error: unknown | AxiosError) {
+      if (axios.isAxiosError(error)) {
         console.error(
-          `Could not fetch: ${error.response.data.message}. \nStatus: ${error.response.status}`
+          `Could not fetch: ${
+            (error.response?.data as messageError).message
+          }. \nStatusText: ${error.response?.statusText}. \nStatus: ${
+            error.response?.status
+          }`
         );
         return false;
       }
-      console.error('Error:', error.message);
+      console.error(error);
       return false;
     }
   },

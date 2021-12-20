@@ -1,16 +1,16 @@
 import { Dispatch } from 'redux';
 import {
   FeedAction,
+  FeedPost,
   FeedSetErrorApi,
   FeedSetIsLoaded,
   FeedSetPosts,
-  FeedStatePosts,
   Types,
 } from 'types/feed';
 
 import mainAPI from '../../api/api';
 
-export const setPosts = (payload: FeedStatePosts[]): FeedSetPosts => ({
+export const setPosts = (payload: FeedPost[]): FeedSetPosts => ({
   type: Types.SET_POSTS,
   payload,
 });
