@@ -1,25 +1,34 @@
 import { Dispatch } from 'redux';
-import { FeedAction, FeedStatePosts, Types } from 'types/feed';
+import {
+  FeedAction,
+  FeedSetErrorApi,
+  FeedSetIsLoaded,
+  FeedSetPosts,
+  FeedStatePosts,
+  Types,
+} from 'types/feed';
 
 import mainAPI from '../../api/api';
 
-export const setPosts = (payload: FeedStatePosts[]) => ({
+export const setPosts = (payload: FeedStatePosts[]): FeedSetPosts => ({
   type: Types.SET_POSTS,
   payload,
 });
 
-export const setIsLoaded = (payload: boolean) => ({
+export const setIsLoaded = (payload: boolean): FeedSetIsLoaded => ({
   type: Types.SET_IS_LOADED,
   payload,
 });
 
-export const setErrorApi = (payload: boolean) => ({
+export const setErrorApi = (payload: boolean): FeedSetErrorApi => ({
   type: Types.SET_ERROR_API,
   payload,
 });
 
-export const fetchPosts = (page) => async (dispatch: Dispatch<FeedAction>) => {
-  const response = await mainAPI.getPosts(page);
+type FeedDispatch = Dispatch<FeedAction>;
+
+export const fetchPosts = () => async (dispatch: FeedDispatch) => {
+  const response = await mainAPI.getPosts();
   if (response) {
     dispatch(setPosts(response));
     dispatch(setIsLoaded(true));

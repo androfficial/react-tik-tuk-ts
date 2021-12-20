@@ -17,19 +17,19 @@ export type FeedStatePosts = {
   cover: string;
 };
 
-type FeedSetPosts = {
+export type FeedSetPosts = {
   type: Types.SET_POSTS;
   payload: FeedStatePosts[];
 };
 
-type FeedSetIsLoaded = {
+export type FeedSetIsLoaded = {
   type: Types.SET_IS_LOADED;
   payload: boolean;
 };
 
-type FeedErrorApi = {
+export type FeedSetErrorApi = {
   type: Types.SET_ERROR_API;
   payload: boolean;
 };
 
-export type FeedAction = FeedSetPosts | FeedSetIsLoaded | FeedErrorApi;
+export type FeedAction = FeedSetPosts | FeedSetIsLoaded | FeedSetErrorApi;

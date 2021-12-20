@@ -23,17 +23,17 @@ export type UserProfileInfo = {
   posts: UserProfilePosts[];
 };
 
-type UserProfileSetUserInfo = {
+export type UserProfileSetUserInfo = {
   type: Types.SET_USER_INFO;
   payload: UserProfileInfo;
 };
 
-type UserProfileSetIsLoaded = {
+export type UserProfileSetIsLoaded = {
   type: Types.SET_IS_LOADED;
   payload: boolean;
 };
 
-type UserProfileSetErrorApi = {
+export type UserProfileSetErrorApi = {
   type: Types.SET_ERROR_API;
   payload: boolean;
 };
