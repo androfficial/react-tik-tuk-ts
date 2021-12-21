@@ -10,7 +10,7 @@ import {
   fetchUserProfilePosts,
   setBottomIsLoaded,
   setTopIsLoaded,
-} from '../../redux/actions/userProfile';
+} from '../../store/actions/userProfile';
 
 const UserProfile = () => {
   const { uniqueName } = useParams() as { uniqueName: string };

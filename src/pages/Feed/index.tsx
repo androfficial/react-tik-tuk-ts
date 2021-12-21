@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { Post, Preloader } from '../../components';
-import { fetchPosts, setIsLoaded } from '../../redux/actions/feed';
+import { fetchPosts, setIsLoaded } from '../../store/actions/feed';
 
 const Feed = () => {
   const dispatch = useDispatch();
