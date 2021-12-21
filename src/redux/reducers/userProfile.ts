@@ -22,18 +22,18 @@ const userProfile = (
 ): UserProfileInitialState => {
   switch (action.type) {
     case Types.SET_USER_INFO: {
-      const data = action.payload;
+      const userInfo = action.payload;
 
       const filteredUserInfo = {
-        followerCount: data.stats.followerCount,
-        followingCount: data.stats.followingCount,
-        heartCount: data.stats.heartCount,
-        avatar: data.user.avatarLarger,
-        nickName: data.user.nickname,
-        description: data.user.signature,
-        userName: data.user.uniqueId,
-        verified: data.user.verified,
-        bioLink: data.user.bioLink && data.user.bioLink.link,
+        followerCount: userInfo.stats.followerCount,
+        followingCount: userInfo.stats.followingCount,
+        heartCount: userInfo.stats.heartCount,
+        avatar: userInfo.user.avatarLarger,
+        nickName: userInfo.user.nickname,
+        description: userInfo.user.signature,
+        userName: userInfo.user.uniqueId,
+        verified: userInfo.user.verified,
+        bioLink: userInfo.user.bioLink && userInfo.user.bioLink.link,
       };
 
       return {

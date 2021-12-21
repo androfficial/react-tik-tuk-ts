@@ -15,7 +15,9 @@ const Feed = () => {
 
   useEffect(() => {
     dispatch(fetchPosts());
-    return () => dispatch(setIsLoaded(false));
+    return () => {
+      dispatch(setIsLoaded(false));
+    };
   }, [dispatch]);
 
   return (
