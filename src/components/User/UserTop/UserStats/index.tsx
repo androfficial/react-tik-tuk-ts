@@ -1,10 +1,10 @@
 import numberFormatting from '../../../../services/numberFormatting';
 
-interface IUserStats {
+type IUserStats = {
   followerCount: number;
   followingCount: number;
   heartCount: number;
-}
+};
 
 const UserStats = ({
   followingCount,

@@ -63,7 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
 }
 
 // === <КОНТЕЙНЕР> =====================================================
@@ -91,11 +91,17 @@ body {
   }
 }
 .main {
+  height: 100%;
+  // .main__container
+  &__container {
+    height: 100%;
+  }
   // .main__wrapper
   &__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
     padding: 0px 0px 20px 0px;
   }
   // .main__feed

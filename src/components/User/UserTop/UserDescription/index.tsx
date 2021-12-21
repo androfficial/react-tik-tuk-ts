@@ -1,6 +1,7 @@
-interface IUserDescription {
+/* eslint-disable react/jsx-no-useless-fragment */
+type IUserDescription = {
   description: string;
-}
+};
 
 const UserDescription = ({ description }: IUserDescription) => (
   <>
@@ -9,7 +10,6 @@ const UserDescription = ({ description }: IUserDescription) => (
         <h2 className='user-profile__desc'>{description}</h2>
       </div>
     )}
-    ;
   </>
 );
 

@@ -1,9 +1,9 @@
-interface IAuthorVideo {
+type TAuthorVideo = {
   video: string;
   cover: string;
-}
+};
 
-const AuthorVideo = ({ cover, video }: IAuthorVideo) => (
+const AuthorVideo = ({ cover, video }: TAuthorVideo) => (
   <div className='item-feed__body'>
     <video
       autoPlay

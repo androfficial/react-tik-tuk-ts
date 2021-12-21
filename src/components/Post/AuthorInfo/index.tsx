@@ -2,14 +2,14 @@ import AuthorAvatar from './AuthorAvatar';
 import AuthorDescription from './AuthorDescription';
 import AuthorName from './AuthorName';
 
-interface IAuthorInfo {
+type TAuthorInfo = {
   avatar: string;
   hashtags: string[];
   uniqueName: string;
   nickName: string;
   text: string;
   verified: boolean;
-}
+};
 
 const AuthorInfo = ({
   avatar,
@@ -18,7 +18,7 @@ const AuthorInfo = ({
   nickName,
   text,
   verified,
-}: IAuthorInfo) => (
+}: TAuthorInfo) => (
   <div className='item-feed__header'>
     <AuthorAvatar avatar={avatar} uniqueName={uniqueName} />
     <div className='item-feed__author-info'>

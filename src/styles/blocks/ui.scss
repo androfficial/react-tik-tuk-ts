@@ -255,15 +255,10 @@
 
 // PRELOADER
 .preloader {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 1001;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  transform: translate(-50%, -50%);
   img {
     @include adaptiv-value('width', 100, 80, 1);
     @include adaptiv-value('height', 100, 80, 1);

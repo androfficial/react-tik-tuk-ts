@@ -1,9 +1,9 @@
-interface IAuthorDescription {
+type TAuthorDescription = {
   text: string;
   hashtags: string[];
-}
+};
 
-const AuthorDescription = ({ text, hashtags }: IAuthorDescription) => (
+const AuthorDescription = ({ text, hashtags }: TAuthorDescription) => (
   <div className='item-feed__author-description'>
     {text && <strong className='item-feed__text'>{text}</strong>}
     {hashtags &&

@@ -1,19 +1,9 @@
+import { UserProfileInfoState } from 'types/userProfile';
+
 import UserBioLinks from './UserBioLinks';
 import UserDescription from './UserDescription';
 import UserInfo from './UserInfo';
 import UserStats from './UserStats';
-
-interface IUserTop {
-  avatar: string;
-  userName: string;
-  nickName: string;
-  verified: boolean;
-  bioLink: string;
-  followerCount: number;
-  followingCount: number;
-  heartCount: number;
-  description: string;
-}
 
 const UserTop = ({
   avatar,
@@ -25,7 +15,7 @@ const UserTop = ({
   heartCount,
   description,
   bioLink,
-}: IUserTop) => (
+}: UserProfileInfoState) => (
   <div className='user-profile__top'>
     <UserInfo
       avatar={avatar}

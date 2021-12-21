@@ -2,12 +2,15 @@
 import {
   Types,
   UserProfileAction,
-  UserProfileInfo,
-} from '../../types/userProfile';
+  UserProfileInfoState,
+  UserProfilePostsState,
+} from 'types/userProfile';
 
 const initialState = {
-  userInfo: {} as UserProfileInfo,
-  isLoaded: false,
+  userInfo: {} as UserProfileInfoState,
+  userPosts: [] as UserProfilePostsState[],
+  topIsLoaded: false,
+  bottomIsLoaded: false,
   errorApi: false,
 };
 
@@ -18,15 +21,49 @@ const userProfile = (
   action: UserProfileAction
 ): UserProfileInitialState => {
   switch (action.type) {
-    case Types.SET_USER_INFO:
-      return {
-        ...state,
-        userInfo: action.payload,
+    case Types.SET_USER_INFO: {
+      const data = action.payload;
+
+      const filteredUserInfo = {
+        followerCount: data.stats.followerCount,
+        followingCount: data.stats.followingCount,
+        heartCount: data.stats.heartCount,
+        avatar: data.user.avatarLarger,
+        nickName: data.user.nickname,
+        description: data.user.signature,
+        userName: data.user.uniqueId,
+        verified: data.user.verified,
+        bioLink: data.user.bioLink && data.user.bioLink.link,
       };
-    case Types.SET_IS_LOADED:
+
       return {
         ...state,
-        isLoaded: action.payload,
+        userInfo: filteredUserInfo,
+      };
+    }
+    case Types.SET_USER_POSTS: {
+      const data = action.payload;
+
+      const filteredUserPosts = data.map((obj) => ({
+        cover: obj.covers.origin,
+        video: obj.videoUrl,
+        views: obj.playCount,
+      }));
+
+      return {
+        ...state,
+        userPosts: filteredUserPosts,
+      };
+    }
+    case Types.SET_TOP_IS_LOADED:
+      return {
+        ...state,
+        topIsLoaded: action.payload,
+      };
+    case Types.SET_BOTTOM_IS_LOADED:
+      return {
+        ...state,
+        bottomIsLoaded: action.payload,
       };
     case Types.SET_ERROR_API:
       return {

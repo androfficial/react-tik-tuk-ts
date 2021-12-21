@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-interface IUserBioLinks {
-  bioLink: string;
-}
+type IUserBioLinks = {
+  bioLink: string | undefined;
+};
 
 const UserBioLinks = ({ bioLink }: IUserBioLinks) => (
   <>

@@ -1,19 +1,8 @@
+import { FeedStatePosts } from 'types/feed';
+
 import AuthorInfo from './AuthorInfo';
 import AuthorStats from './AuthorStats';
 import AuthorVideo from './AuthorVideo';
-
-interface IPost {
-  avatar: string;
-  commentsCount: number;
-  hashtags: string[];
-  likesCount: number;
-  uniqueName: string;
-  nickName: string;
-  text: string;
-  verified: boolean;
-  video: string;
-  cover: string;
-}
 
 const Post = ({
   avatar,
@@ -26,7 +15,7 @@ const Post = ({
   verified,
   video,
   cover,
-}: IPost) => (
+}: FeedStatePosts) => (
   <article className='feed__item item-feed'>
     <AuthorInfo
       avatar={avatar}

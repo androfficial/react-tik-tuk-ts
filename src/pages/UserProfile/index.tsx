@@ -4,23 +4,43 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-import { Preloader, User } from '../../components';
-import { fetchUserProfile, setIsLoaded } from '../../redux/actions/userProfile';
+import { User } from '../../components';
+import {
+  fetchUserProfileInfo,
+  fetchUserProfilePosts,
+  setBottomIsLoaded,
+  setTopIsLoaded,
+} from '../../redux/actions/userProfile';
 
 const UserProfile = () => {
-  const { uniqueName } = useParams();
+  const { uniqueName } = useParams() as { uniqueName: string };
   const dispatch = useDispatch();
-  const [userInfo, isLoaded] = useTypesSelector(({ userProfile }) => [
-    userProfile.userInfo,
-    userProfile.isLoaded,
-  ]);
+  const [userInfo, userPosts, topIsLoaded, bottomIsLoaded] = useTypesSelector(
+    ({ userProfile }) => [
+      userProfile.userInfo,
+      userProfile.userPosts,
+      userProfile.topIsLoaded,
+      userProfile.bottomIsLoaded,
+    ]
+  );
 
   useEffect(() => {
-    dispatch(fetchUserProfile(uniqueName));
-    return () => dispatch(setIsLoaded(false));
+    dispatch(fetchUserProfileInfo(uniqueName));
+    dispatch(fetchUserProfilePosts());
+    return () => {
+      dispatch(setTopIsLoaded(false));
+      dispatch(setBottomIsLoaded(false));
+    };
   }, [uniqueName, dispatch]);
 
-  return isLoaded ? <User {...userInfo} /> : <Preloader />;
+  return (
+    <User
+      userInfo={userInfo}
+      userPosts={userPosts}
+      topIsLoaded={topIsLoaded}
+      bottomIsLoaded={bottomIsLoaded}
+    />
+  );
 };
 
 export default UserProfile;

@@ -1,11 +1,11 @@
-interface IUserInfo {
+type TUserInfo = {
   avatar: string;
   userName: string;
   nickName: string;
   verified: boolean;
-}
+};
 
-const UserInfo = ({ avatar, userName, nickName, verified }: IUserInfo) => (
+const UserInfo = ({ avatar, userName, nickName, verified }: TUserInfo) => (
   <div className='user-profile__header'>
     <span className='user-profile__avatar _author-avatar'>
       <img src={avatar} alt={userName} />

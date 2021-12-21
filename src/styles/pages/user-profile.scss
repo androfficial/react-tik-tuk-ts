@@ -119,6 +119,11 @@
   // .user-profile__pagination
   &__pagination {
   }
+  // .user-profile__center-loading
+  &__center-loading {
+    grid-template: auto 1fr / auto;
+    height: 100%;
+  }
 }
 
 // STATS-USER

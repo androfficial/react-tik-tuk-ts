@@ -4,19 +4,6 @@ export enum Types {
   SET_IS_LOADED = 'FEED@SET:IS_LOADED',
 }
 
-export type FeedStatePosts = {
-  uniqueName: string;
-  nickName: string;
-  verified: boolean;
-  avatar: string;
-  likesCount: number;
-  commentsCount: number;
-  hashtags: [] | string[];
-  text: string;
-  video: string;
-  cover: string;
-};
-
 export type FeedAuthorMeta = {
   avatar: string;
   digg: number;
@@ -90,6 +77,19 @@ export type FeedPost = {
   videoUrl: string;
   videoUrlNoWaterMark: string;
   webVideoUrl: string;
+};
+
+export type FeedStatePosts = {
+  uniqueName: string;
+  nickName: string;
+  verified: boolean;
+  avatar: string;
+  likesCount: number;
+  commentsCount: number;
+  hashtags: [] | string[];
+  text: string;
+  video: string;
+  cover: string;
 };
 
 export type FeedSetPosts = {

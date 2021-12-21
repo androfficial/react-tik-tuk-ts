@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 
-interface IAuthorName {
+type TAuthorName = {
   uniqueName: string;
   nickName: string;
   verified: boolean;
-}
+};
 
-const AuthorName = ({ uniqueName, nickName, verified }: IAuthorName) => (
+const AuthorName = ({ uniqueName, nickName, verified }: TAuthorName) => (
   <>
     <Link to={`/@${uniqueName}`} className='item-feed__uniqueId-link'>
       <h3 className='item-feed__author-uniqueId _author-uniqueId'>

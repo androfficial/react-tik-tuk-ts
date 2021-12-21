@@ -1,4 +1,4 @@
-const numberFormatting = (number) => {
+const numberFormatting = (number: number) => {
   // Если не целое число
   if (!Number.isInteger(number)) {
     return number;

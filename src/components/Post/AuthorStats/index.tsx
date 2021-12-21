@@ -1,11 +1,11 @@
 import numberFormatting from '../../../services/numberFormatting';
 
-interface IAuthorStats {
+type TAuthorStats = {
   commentsCount: number;
   likesCount: number;
-}
+};
 
-const AuthorStats = ({ likesCount, commentsCount }: IAuthorStats) => (
+const AuthorStats = ({ likesCount, commentsCount }: TAuthorStats) => (
   <div className='item-feed__footer'>
     <div className='item-feed__stat item-feed__stat--likes'>
       <div className='item-feed__stat-wrapper'>

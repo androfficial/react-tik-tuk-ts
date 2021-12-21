@@ -3,12 +3,12 @@ import { Link, NavLink } from 'react-router-dom';
 
 import Logo from '../../assets/images/logo.svg';
 
-interface IActiveNavLink {
+type TActiveNavLink = {
   isActive: boolean;
-}
+};
 
 const Header = () => {
-  const activeNavLink = ({ isActive }: IActiveNavLink) =>
+  const activeNavLink = ({ isActive }: TActiveNavLink) =>
     cn('menu__link _nav-link', isActive && '_active');
 
   return (

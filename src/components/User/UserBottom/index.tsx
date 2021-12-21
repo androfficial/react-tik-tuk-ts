@@ -1,16 +1,12 @@
+import { UserProfilePostsState } from 'types/userProfile';
+
 import numberFormatting from '../../../services/numberFormatting';
 
-interface IUserBottomPosts {
-  cover: string;
-  video: string;
-  views: number;
-}
+type TUserBottom = {
+  posts: UserProfilePostsState[];
+};
 
-interface IUserBottom {
-  posts: IUserBottomPosts[];
-}
-
-const UserBottom = ({ posts }: IUserBottom) => (
+const UserBottom = ({ posts }: TUserBottom) => (
   <div className='user-profile__bottom'>
     <ul className='user-profile__posts'>
       {posts &&
@@ -47,9 +43,6 @@ const UserBottom = ({ posts }: IUserBottom) => (
           </li>
         ))}
     </ul>
-    {/* <div className="user-profile__pagination">
-<Pagination />
-</div> */}
   </div>
 );
 
