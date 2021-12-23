@@ -1,7 +1,6 @@
 /* eslint-disable default-param-last */
+import stringFormatting from 'services/stringFormatting';
 import { FeedAction, FeedStatePosts, Types } from 'types/feed';
-
-import stringFormatting from '../../services/stringFormatting';
 
 const initialState = {
   posts: [] as FeedStatePosts[],

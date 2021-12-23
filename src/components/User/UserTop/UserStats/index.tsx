@@ -1,4 +1,4 @@
-import numberFormatting from '../../../../services/numberFormatting';
+import numberFormatting from 'services/numberFormatting';
 
 type IUserStats = {
   followerCount: number;

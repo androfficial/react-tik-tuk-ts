@@ -1,16 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
+import { User } from 'components';
 import useTypesSelector from 'hooks/useTypesSelector';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import { User } from '../../components';
 import {
   fetchUserProfileInfo,
   fetchUserProfilePosts,
   setBottomIsLoaded,
   setTopIsLoaded,
-} from '../../store/actions/userProfile';
+} from 'store/actions/userProfile';
 
 const UserProfile = () => {
   const { uniqueName } = useParams() as { uniqueName: string };

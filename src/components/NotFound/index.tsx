@@ -1,6 +1,5 @@
+import NotFoundImg from 'assets/images/NotFound/not-found.svg';
 import { Link } from 'react-router-dom';
-
-import NotFoundImg from '../../assets/images/NotFound/not-found.svg';
 
 const NotFound = () => (
   <div className='not-found'>

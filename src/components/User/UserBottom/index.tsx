@@ -1,6 +1,5 @@
+import numberFormatting from 'services/numberFormatting';
 import { UserProfilePostsState } from 'types/userProfile';
-
-import numberFormatting from '../../../services/numberFormatting';
 
 type TUserBottom = {
   posts: UserProfilePostsState[];

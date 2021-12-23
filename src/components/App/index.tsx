@@ -1,9 +1,9 @@
+import withErrorApi from 'hoc/withErrorApi';
+import { Feed, UserProfile } from 'pages';
 import { useEffect } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import addMarginRight from 'services/addMarginRight';
 
-import withErrorApi from '../../hoc/withErrorApi';
-import { Feed, UserProfile } from '../../pages';
-import addMarginRight from '../../services/addMarginRight';
 import { Header, NotFound } from '..';
 
 const App = () => {
