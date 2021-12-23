@@ -14,7 +14,7 @@ const Feed = () => {
   ]);
 
   useEffect(() => {
-    dispatch(fetchPosts());
+    dispatch(fetchPosts(10));
     return () => {
       dispatch(setIsLoaded(false));
     };

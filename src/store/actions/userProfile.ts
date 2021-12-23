@@ -1,8 +1,8 @@
+import { getPosts } from 'api/rest/trendingFeed';
+import { getUserInfo } from 'api/rest/userInfo';
 import { Dispatch } from 'redux';
 import { FeedPost } from 'types/feed';
 import { Types, UserProfileAction, UserProfileInfo } from 'types/userProfile';
-
-import mainAPI from '../../api/api';
 
 export const setUserInfo = (payload: UserProfileInfo): UserProfileAction => ({
   type: Types.SET_USER_INFO,
@@ -33,7 +33,7 @@ type UserProfileDispatch = Dispatch<UserProfileAction>;
 
 export const fetchUserProfileInfo =
   (uniqueName: string) => async (dispatch: UserProfileDispatch) => {
-    const response = await mainAPI.getUserInfo(uniqueName);
+    const response = await getUserInfo(uniqueName);
     if (response) {
       dispatch(setUserInfo(response));
       dispatch(setTopIsLoaded(true));
@@ -44,7 +44,7 @@ export const fetchUserProfileInfo =
 
 export const fetchUserProfilePosts =
   () => async (dispatch: UserProfileDispatch) => {
-    const response = await mainAPI.getUserPosts();
+    const response = await getPosts();
     if (response) {
       dispatch(setUserPosts(response));
       dispatch(setBottomIsLoaded(true));

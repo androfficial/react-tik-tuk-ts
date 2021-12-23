@@ -1,7 +1,6 @@
+import { getPosts } from 'api/rest/trendingFeed';
 import { Dispatch } from 'redux';
 import { FeedAction, FeedPost, Types } from 'types/feed';
-
-import mainAPI from '../../api/api';
 
 export const setPosts = (payload: FeedPost[]): FeedAction => ({
   type: Types.SET_POSTS,
@@ -20,8 +19,8 @@ export const setErrorApi = (payload: boolean): FeedAction => ({
 
 type FeedDispatch = Dispatch<FeedAction>;
 
-export const fetchPosts = () => async (dispatch: FeedDispatch) => {
-  const response = await mainAPI.getPosts();
+export const fetchPosts = (limit: number) => async (dispatch: FeedDispatch) => {
+  const response = await getPosts(limit);
   if (response) {
     dispatch(setPosts(response));
     dispatch(setIsLoaded(true));
